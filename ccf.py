@@ -30,8 +30,8 @@ def df_derived_by_shift(df,lag=0,NON_DER=[]):
 oil_normalized = pd.read_csv("weekly/oil_normalized.csv",encoding='utf-8')
 oil_normalized.set_index(oil_normalized['datetime'], inplace=True) # datatime 을 인덱스로 설정
 oil_normalized = oil_normalized.drop('datetime', 1)
-
-df_new = df_derived_by_shift(oil_normalized, 10)#마지막에 datetime 있는게 한칸씩 사라짐
+oil_normalized
+df_new = df_derived_by_shift(oil_normalized, 50)#마지막에 datetime 있는게 한칸씩 사라짐\
 df_new = df_new.dropna()
 df_new.to_csv("weekly/ccf10_normal.csv", mode='w')
 df_new.corr().to_csv("weekly/ccf10_corr.csv", mode='w')
